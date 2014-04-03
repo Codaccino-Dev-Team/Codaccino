@@ -22,9 +22,9 @@ To add a shop you must have the data. See example below.
 
 ## Our Current Travis Status
 
-[![Build Status](https://travis-ci.org/vogelbek/Codaccino.png?branch=master)](https://travis-ci.org/vogelbek/Codaccino)
+[![Build Status](https://travis-ci.org/Codaccino-Dev-Team/Codaccino.svg?branch=master)](https://travis-ci.org/Codaccino-Dev-Team/Codaccino)
 
 ## Our Code Climate
 
-[![Code Climate](https://codeclimate.com/github/vogelbek/Codaccino.png)](https://codeclimate.com/github/vogelbek/Codaccino)
+[![Code Climate](https://codeclimate.com/github/Codaccino-Dev-Team/Codaccino.png)](https://codeclimate.com/github/Codaccino-Dev-Team/Codaccino)
 
