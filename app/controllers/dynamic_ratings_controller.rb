@@ -10,6 +10,7 @@ class DynamicRatingsController < ApplicationController
   def create
     @dynamic_rating = @shop.dynamic_ratings.build dynamic_rating_params.merge!(admin: current_admin)
     if @dynamic_rating.save!
+      update_shop_rating! @dynamic_rating
       flash[:success] = "Rating Saved"
       redirect_to @shop
     else
@@ -31,5 +32,12 @@ class DynamicRatingsController < ApplicationController
                                   :noise,
                                   :wifi_up,
                                   :wifi_down]
+  end
+
+  def update_shop_rating! rating
+    @shop.noise = rating.noise if rating.noise
+    @shop.wifi_up = rating.wifi_up if rating.wifi_up
+    @shop.wifi_down = rating.wifi_down if rating.wifi_down
+    @shop.save!
   end
 end
