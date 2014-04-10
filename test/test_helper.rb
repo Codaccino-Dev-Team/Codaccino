@@ -12,12 +12,20 @@ class ActiveSupport::TestCase
 
   fixtures :all
 
-    def sign_in (admin = :login_info)
+    def sign_in (admin = :abigail)
       visit new_admin_session_path
       fill_in "Email", with: admins(admin).email
       fill_in "Password",with: 'Target1234'
       click_on "Sign in"
     end
+
+    def rating_entered
+      click_on shops(:shop_2).name
+      click_link 'Rate this Shop'
+      fill_in "Noise", with: 2
+    end
+
+
 
 end
 
