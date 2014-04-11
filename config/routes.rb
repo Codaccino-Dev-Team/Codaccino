@@ -8,7 +8,7 @@ Codaccino::Application.routes.draw do
     resources :dynamic_ratings, only: [:new, :create, :show, :destroy]
   end
 
-  devise_for :admins
+  devise_for :users
 
 
   # The priority is based upon order of creation: first created -> highest priority.
