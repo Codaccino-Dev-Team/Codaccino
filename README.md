@@ -28,3 +28,4 @@ To add a shop you must have the data. See example below.
 
 [![Code Climate](https://codeclimate.com/github/Codaccino-Dev-Team/Codaccino.png)](https://codeclimate.com/github/Codaccino-Dev-Team/Codaccino)
 
+
