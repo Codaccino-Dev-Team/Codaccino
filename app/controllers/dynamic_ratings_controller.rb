@@ -2,13 +2,13 @@ class DynamicRatingsController < ApplicationController
   before_action :set_shop
 
   def new
-    flash[:error] = "Need to log in to modify that rating" unless admin_signed_in?
+    flash[:error] = "Need to log in to modify that rating" unless user_signed_in?
     @dynamic_rating = @shop.dynamic_ratings.build
 
   end
 
   def create
-    @dynamic_rating = @shop.dynamic_ratings.build dynamic_rating_params.merge!(admin: current_admin)
+    @dynamic_rating = @shop.dynamic_ratings.build dynamic_rating_params.merge!(user: current_user)
     if @dynamic_rating.save!
       update_shop_rating! @dynamic_rating
       flash[:success] = "Rating Saved"

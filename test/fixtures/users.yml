@@ -7,13 +7,13 @@
 #
 abigail:
   email: abigail@coolemail.com
-  encrypted_password: <%= Admin.new.send(:password_digest, 'Target1234') %>
+  encrypted_password: <%= User.new.send(:password_digest, 'Target1234') %>
 
 ben:
   email: ben@coolemail.com
-  encrypted_password: <%= Admin.new.send(:password_digest, 'Target1234') %>
+  encrypted_password: <%= User.new.send(:password_digest, 'Target1234') %>
 
 chuck:
   email: chuck@coolemail.com
-  encrypted_password: <%= Admin.new.send(:password_digest, 'Target1234') %>
+  encrypted_password: <%= User.new.send(:password_digest, 'Target1234') %>
 
