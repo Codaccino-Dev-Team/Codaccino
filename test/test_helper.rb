@@ -13,8 +13,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
     def sign_in (admin = :abigail)
-      visit new_admin_session_path
-      fill_in "Email", with: admins(admin).email
+      visit new_user_session_path
+      fill_in "Email", with: users(admin).email
       fill_in "Password",with: 'Target1234'
       click_on "Sign in"
     end

@@ -18,9 +18,9 @@ feature "Admin User Visitor have different modification and access policies" do
 
   scenario 'Admin attempts to modify store noise rating' do
     skip "The admin role does not exist"
-    sign_in(:admin)
-    rating_entered
-    page.must_have_content 'Rating Saved'
+    # sign_in(:admin)
+    # rating_entered
+    # page.must_have_content 'Rating Saved'
   end
 
   scenario 'Updating dynamic rating changes the shops rating' do
