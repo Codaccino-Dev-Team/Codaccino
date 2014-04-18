@@ -30,6 +30,7 @@ gem 'devise'
 gem 'minitest-rails'
 gem 'i18n', '>= 0.6.5'
 gem 'launchy'
+gem 'pundit'
 
 group :development, :test do
   gem 'minitest-rails-capybara'
