@@ -45,5 +45,8 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+#Authentication
+gem 'omniauth-twitter'
+gem 'figaro'
 
 ruby '2.1.0'

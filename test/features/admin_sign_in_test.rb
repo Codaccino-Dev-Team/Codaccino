@@ -27,13 +27,21 @@ feature "AdminSignIn" do
     page.must_have_content 'Signed out successfully'
   end
 
+  scenario "sign in with twitter works" do
+    visit root_path
+    click_on "Sign In"
+    OmniAuth.config.test_mode = true
+    Capybara.current_session.driver.request.env['devise.mapping'] = Devise.mappings[:user]
+    Capybara.current_session.driver.request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:twitter]
+    OmniAuth.config.add_mock(:twitter,
+                            {
+                            uid: '12345',
+                            info: { nickname: 'test_twitter_user'},
+                            })
+    click_on "Sign in with Twitter"
 
-  # scenario 'must be logged in to able to delete a store' do
-    # visit root_path
-    # first(:link, 'Login').click
-    # sign_in
-    # click_on shops(:shop_1).name
-    # click_on 'delete'
+    page.must_have_content "test_twitter_user-changeme@twitter.example.com, you are signed in!"
+  end
 
 
 
