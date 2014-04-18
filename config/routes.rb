@@ -3,8 +3,10 @@ Codaccino::Application.routes.draw do
   get "shops/index"
   get "shops/wifi_up" => 'shops#sort_wifi_up'
 
-  resources :leads
-  resources :shops
+  resources :leads 
+  resources :shops do
+    resources :comments
+  end
   devise_for :admins
 
 
