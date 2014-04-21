@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 20140418015038) do
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
 
-
-
   create_table "dynamic_ratings", force: true do |t|
     t.decimal  "wifi_up"
     t.decimal  "wifi_down"
