@@ -3,11 +3,13 @@ Codaccino::Application.routes.draw do
   get "shops/index"
   get "shops/wifi_up" => 'shops#sort_wifi_up'
 
-  resources :leads 
+  resources :leads
   resources :shops do
+    resources :dynamic_ratings, only: [:new, :create, :show, :destroy]
     resources :comments
   end
-  devise_for :admins
+
+  devise_for :users
 
 
   # The priority is based upon order of creation: first created -> highest priority.
