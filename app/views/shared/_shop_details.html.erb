@@ -5,6 +5,7 @@
     <h3><%= shop.phone %></h3>
   </div>
   <div class='small-12 large-6 columns'>
+    <%= link_to "Rate this Shop" ,new_shop_dynamic_rating_path(shop) %>
     <h3>Hours</h3>
     <table>
       <tr>
@@ -23,7 +24,7 @@
   </div>
 </div>
 
-<% if admin_signed_in? %>
+<% if user_signed_in? %>
 <div class = 'row'>
   <div class = 'small-12 columns'>
     <%= link_to 'edit', edit_shop_path(shop) %> | <%=link_to 'delete', shop, method: :delete, data: {confirm: "Wow did they try to sue? Blow it away then!"} %>

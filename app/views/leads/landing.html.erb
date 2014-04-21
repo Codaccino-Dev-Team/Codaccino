@@ -10,13 +10,6 @@
   </div>
   <%= render 'form' %>
 </div>
-<div class = 'row'>
-  <% flash.each do |key,value| %>
-      <div class = "alert-box <%= flash_class(key) %>">
-          <%= value %>
-      </div>
-  <% end %>
-</div>
 <% @shops.each do |shop|%>
   <%= render 'shared/shops_index', shop: shop %>
 <% end %>
