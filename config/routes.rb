@@ -6,6 +6,7 @@ Codaccino::Application.routes.draw do
   resources :leads
   resources :shops do
     resources :dynamic_ratings, only: [:new, :create, :show, :destroy]
+    resources :comments
   end
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
