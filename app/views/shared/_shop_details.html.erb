@@ -22,6 +22,8 @@
       </tr>
     </table>
   </div>
+  <%= link_to 'Add a Comment', new_shop_comment_path(shop.id) %>
+	<%= render 'comments/comments', comments: shop.comments %>
 </div>
 
 <% if user_signed_in? %>
