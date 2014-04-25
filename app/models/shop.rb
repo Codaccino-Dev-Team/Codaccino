@@ -1,6 +1,5 @@
 class Shop < ActiveRecord::Base
   has_many :comments, as: :commentable
-  
   has_many :dynamic_ratings
 
   mount_uploader :shop_image, ShopImageUploader
