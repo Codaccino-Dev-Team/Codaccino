@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 20140418015038) do
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
 
-ActiveRecord::Schema.define(version: 20140417054848) do
-
   create_table "dynamic_ratings", force: true do |t|
     t.decimal  "wifi_up"
     t.decimal  "wifi_down"
@@ -73,9 +71,9 @@ ActiveRecord::Schema.define(version: 20140417054848) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role",                   default: "user"
     t.string   "provider"
     t.string   "uid"
-    t.string   "role",                   default: "user"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
