@@ -13,14 +13,14 @@
 		<%@commentable.comments.each do |comment|%>
 			<%=comment.content%>
 		<%end%>
-	</div>	
+	</div>
 	<br>
 	<br>
-	
+
 		<div class"field">
 			<%=f.text_area :content, rows: 8 %>
-		</div>	
+		</div>
 		<div class="actions">
-			<%=f.submit %>
+			<%=f.submit 'Add Comment' %>
 		</div>
 <%end%>
