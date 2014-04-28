@@ -13,16 +13,48 @@
   <div id = 'sort-menu' class = 'on-screen'>
     <ul class = 'no-bullet'>
       <li><%= link_to 'Sign In', new_user_session_path %> </li>
+      <li><%= link_to 'New Shop', new_shop_path %>
       <li>Sort by:</li>
-      <li><%= link_to 'Wifi Up', shops_wifi_up_path %></li>
+      <li>
+        <form>
+          <select id="sort_by_picker">
+              <option value="upload">Wifi Up</option>
+              <option value="download">Wifi Down</option>
+              <option value="power">Power Outlet</option>
+              <option value="noise">Noise</option>
+          </select>
+        </form>
+      </li>
     </ul>
-
   </div>
-
-  <select>
-      <option value="upload">Wifi Up</option>
-      <option value="download">Wifi Down</option>
-      <option value="power">Power_Outlet</option>
-      <option value="noise">noise</option>
-  </select>
+  <script>
+  $( document ).ready(function() {
+    // set sort_by_picker
+    if ( window.location.toString().indexOf("<%= shops_wifi_down_path %>") > 0) {
+      $( '#sort_by_picker' ).val("download");
+    }
+    if ( window.location.toString().indexOf("<%= shops_power_path %>") > 0) {
+      $( '#sort_by_picker' ).val("power");
+    }
+    if ( window.location.toString().indexOf("<%= shops_noise_path %>") > 0) {
+      $( '#sort_by_picker' ).val("noise");
+    }
+    // change event handler for sort_by_picker
+    $( '#sort_by_picker' ).change(function() {
+      var sort_value = $(this).val();
+      if (sort_value === "upload") {
+        window.location = "<%= shops_wifi_up_path %>";
+      }
+      if (sort_value === "download") {
+        window.location = "<%= shops_wifi_down_path %>";
+      }
+      if (sort_value === "power") {
+        window.location = "<%= shops_power_path %>";
+      }
+      if (sort_value === "noise") {
+        window.location = "<%= shops_noise_path %>";
+      }
+    });
+  });
+  </script>
 </header>
