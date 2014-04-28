@@ -1,0 +1,13 @@
+comment_1:
+  id: 1
+  content:  "First comment"
+  commentable_id: 1
+  commentable_type: "Shop"
+
+comment_2:
+  id: 2
+  content:  "Second comment"
+  commentable_id: 2
+  commentable_type: "Shop"
+  
+
