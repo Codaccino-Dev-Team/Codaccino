@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 20140418015038) do
+ActiveRecord::Schema.define(version: 20140418024502) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -24,7 +22,6 @@ ActiveRecord::Schema.define(version: 20140418015038) do
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
-
 
   create_table "dynamic_ratings", force: true do |t|
     t.decimal  "wifi_up"
@@ -82,9 +79,9 @@ ActiveRecord::Schema.define(version: 20140418015038) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role",                   default: "user"
     t.string   "provider"
     t.string   "uid"
+    t.string   "role",                   default: "user"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
