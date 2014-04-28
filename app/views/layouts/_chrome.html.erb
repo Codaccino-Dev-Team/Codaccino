@@ -12,10 +12,21 @@
   </div>
   <div id = 'sort-menu' class = 'on-screen'>
     <ul class = 'no-bullet'>
-      <li><%= link_to 'Sign In', new_user_session_path %> </li>
-      <li><%= link_to 'New Shop', new_shop_path %>
-      <li>Sort by:</li>
       <li>
+        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Edit My Profile", edit_user_registration_path %> 
+        <% else %>
+          <%= link_to "Log In", new_user_session_path %> or <%= link_to "Sign up", new_user_registration_path %> 
+        <% end %>
+      </li>
+      <li>
+        <% if user_signed_in? %>
+          <%= link_to 'Add a New Shop', new_shop_path %>
+        <% end %>
+      </li>
+      <li>
+        Sort by:
         <form>
           <select id="sort_by_picker">
               <option value="upload">Wifi Up</option>
