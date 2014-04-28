@@ -28,19 +28,7 @@
 
     <%= render 'layouts/flash' %>
 
-    <%= yield %>
-
-
-    <div class = 'row'>
-      <div class = 'small-12 columns'>
-        <% if user_signed_in? %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% else %>
-          <%= link_to "Log In", new_user_session_path %>
-        <% end %>
-      </div>
-    </div>
-    
+    <%= yield %>    
 
 
     <% if Rails.env.production? %>
