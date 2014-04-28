@@ -11,7 +11,7 @@ class ShopsController < ApplicationController
     render "index"
   end
   def sort_wifi_down
-    @shops = Shop.all.reorder('wifi_up').reverse_order
+    @shops = Shop.all.reorder('wifi_down').reverse_order
     render "index"
   end
   def sort_noise
