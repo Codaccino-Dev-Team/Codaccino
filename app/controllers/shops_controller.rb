@@ -8,6 +8,19 @@ class ShopsController < ApplicationController
 
   def sort_wifi_up
     @shops = Shop.all.reorder('wifi_up').reverse_order
+    render "index"
+  end
+  def sort_wifi_down
+    @shops = Shop.all.reorder('wifi_up').reverse_order
+    render "index"
+  end
+  def sort_noise
+    @shops = Shop.all.reorder('noise').reverse_order
+    render "index"
+  end
+  def sort_power
+    @shops = Shop.all.reorder('outlet_rating').reverse_order
+    render "index"
   end
 
   def new
