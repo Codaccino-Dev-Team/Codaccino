@@ -15,20 +15,20 @@
       <li><%= link_to 'Sign In', new_user_session_path %> </li>
       <li><%= link_to 'New Shop', new_shop_path %>
       <li>Sort by:</li>
-      <li><%= link_to 'Wifi Up', shops_wifi_up_path %></li>
+      <li>
+        <form>
+          <select id="sort_by_picker">
+              <option value="upload">Wifi Up</option>
+              <option value="download">Wifi Down</option>
+              <option value="power">Power Outlet</option>
+              <option value="noise">Noise</option>
+          </select>
+        </form>
+      </li>
     </ul>
-
-
   </div>
-  <form>
-    <select id="sort_by_picker">
-        <option value="upload">Wifi Up</option>
-        <option value="download">Wifi Down</option>
-        <option value="power">Power Outlet</option>
-        <option value="noise">Noise</option>
-    </select>
-  </form>
   <script>
+  $( document ).ready(function() {
     // set sort_by_picker
     if ( window.location.toString().indexOf("<%= shops_wifi_down_path %>") > 0) {
       $( '#sort_by_picker' ).val("download");
@@ -55,5 +55,6 @@
         window.location = "<%= shops_noise_path %>";
       }
     });
+  });
   </script>
 </header>

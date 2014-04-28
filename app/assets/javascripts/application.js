@@ -18,29 +18,3 @@
 
 $(function(){ $(document).foundation(); });
 
-// set sort_by_picker
-if ( window.location.toString().indexOf("<%= shops_wifi_down_path %>") > 0) {
-  $( '#sort_by_picker' ).val("download");
-}
-if ( window.location.toString().indexOf("<%= shops_power_path %>") > 0) {
-  $( '#sort_by_picker' ).val("power");
-}
-if ( window.location.toString().indexOf("<%= shops_noise_path %>") > 0) {
-  $( '#sort_by_picker' ).val("noise");
-}
-// change event handler for sort_by_picker
-$( '#sort_by_picker' ).change(function() {
-  var sort_value = $(this).val();
-  if (sort_value === "upload") {
-    window.location = "<%= shops_wifi_up_path %>";
-  }
-  if (sort_value === "download") {
-    window.location = "<%= shops_wifi_down_path %>";
-  }
-  if (sort_value === "power") {
-    window.location = "<%= shops_power_path %>";
-  }
-  if (sort_value === "noise") {
-    window.location = "<%= shops_noise_path %>";
-  }
-});

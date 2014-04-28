@@ -82,11 +82,4 @@ feature 'ShopCreateReadUpdateDelete' do
 
     end
 
-    scenario 'Sort shops by best wifi_up speed' do
-        visit root_path
-        click_link 'menu'
-        click_on 'Wifi Up'
-        page.text.must_match(/#{shops(:shop_5).name}.*#{shops(:shop_1).name}/)
-    end
-
 end
