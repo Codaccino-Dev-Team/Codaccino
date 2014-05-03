@@ -36,6 +36,7 @@ group :development, :test do
   gem 'minitest-rails-capybara'
   gem 'turn'
   gem 'sqlite3'
+  gem 'orderly'
 end
 
 gem 'bundler'
