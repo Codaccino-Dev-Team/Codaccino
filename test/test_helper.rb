@@ -1,12 +1,15 @@
 ENV["RAILS_ENV"] = "test"
 require 'simplecov'
 SimpleCov.start 'rails'
-puts "required simplecov"
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
 require "minitest/rails/capybara"
 require "minitest/pride"
+require 'capybara/poltergeist'
+# Capybara.default_driver = :webkit
+Capybara.javascript_driver = :poltergeist
+
 
 class ActiveSupport::TestCase
 
