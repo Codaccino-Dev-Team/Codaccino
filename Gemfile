@@ -36,12 +36,8 @@ group :development, :test do
   gem 'minitest-rails-capybara'
   gem 'turn'
   gem 'sqlite3'
-  gem "capybara-webkit"
   gem 'm'
-
   gem 'poltergeist'
-  # gem 'rspec'
-  # gem 'orderly'
 end
 
 gem 'bundler'
