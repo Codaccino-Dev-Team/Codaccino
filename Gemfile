@@ -36,6 +36,8 @@ group :development, :test do
   gem 'minitest-rails-capybara'
   gem 'turn'
   gem 'sqlite3'
+  gem 'm'
+  gem 'poltergeist'
 end
 
 gem 'bundler'
@@ -49,4 +51,4 @@ end
 gem 'omniauth-twitter'
 gem 'figaro'
 
-ruby '2.1.0'
+ruby '2.1.1'
