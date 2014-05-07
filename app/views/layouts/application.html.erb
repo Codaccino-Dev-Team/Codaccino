@@ -16,10 +16,13 @@
 
   	<title><%= content_for?(:title) ? yield(:title) : "Codaccino" %></title>
 
+
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+
+
   </head>
 
   <body>
@@ -28,7 +31,7 @@
 
     <%= render 'layouts/flash' %>
 
-    <%= yield %>    
+    <%= yield %>
 
 
     <% if Rails.env.production? %>
