@@ -1,6 +1,8 @@
-<%=form_for @dynamic_rating, :url => shop_dynamic_ratings_path(@shop) do |s| %>
-<h2>Shop: <%=@dynamic_rating.shop_id%></h2>
+<%=form_for shop, :url => shops_rate_shop_path(shop), html: {multipart: true} do |s| %>
+
+
 <div class= "small-6 columns">
+	<%= s.hidden_field :id %>
   <%= s.label :wifi_up %>
   <%= s.text_field :wifi_up %>
 </div>
@@ -11,11 +13,16 @@
 </div>
 
 <div class= "small-6 columns">
+  <%= s.label :outlet_rating %>
+  <%= s.text_field :outlet_rating %>
+</div>
+
+<div class= "small-6 columns">
   <%= s.label :noise %>
   <%= s.text_field :noise %>
 </div>
 
 <div class= "small-12 large-6 columns">
-  <%= s.submit  name = "Enter your rating!", class: 'button expand' %>
+  <%= s.submit  name = "Rate the Coffeeshop", class: 'button expand' %>
 </div>
 <% end %>

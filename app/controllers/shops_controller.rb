@@ -40,12 +40,28 @@ class ShopsController < ApplicationController
   end
 
   def update
+    logger.info("@@@@@@@Shop UPDATE!")
     if @shop.update_attributes(shop_params)
       flash[:success] = "You've updated the coffeeshop info!"
       redirect_to @shop
       # redirect_to root_path
     else
       flash[:error] = "something went wrong. Try again"
+      redirect_to @shop
+
+    end
+  end
+  def rate_shop
+    @shop = Shop.find(params[:shop][:id])
+    logger.info("@@@@@@@Shop Rate Shop!")
+    logger.info("@@@@@@@Shop Info: #{@shop.noise}")
+    if @shop.update_attributes(shop_params)
+      flash[:success] = "You've updated the coffeeshop info!"
+      redirect_to :action => 'index'
+      # redirect_to root_path
+    else
+      flash[:error] = "something went wrong. Try again"
+      #redirect_to index
       redirect_to @shop
 
     end
@@ -63,7 +79,8 @@ private
     @shop = Shop.find(params[:id])
   end
   def shop_params
-    params.require(:shop).permit  :name,
+    params.require(:shop).permit  :id,
+                                  :name,
                                   :address,
                                   :site,
                                   :phone,

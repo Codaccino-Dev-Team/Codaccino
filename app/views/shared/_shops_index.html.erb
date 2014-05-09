@@ -18,6 +18,9 @@
           <li>Wifi Down: <%= shop.wifi_down %></li>
           <li>Power: <%= shop.outlet_rating %></li>
           <li>Noise: <%= shop.noise %></li>
+					<li>Rate this shop:</li>
+					<%@shop = shop%>
+					<li><%= render 'shops/rate_shop_form', shop: shop %></li>
         </ul>
       </div>
     </div>
