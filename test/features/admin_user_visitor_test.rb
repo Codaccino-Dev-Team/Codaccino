@@ -5,8 +5,14 @@ feature "Admin User Visitor have different modification and access policies" do
   scenario "A visitor attempts to modify store noise rating" do
     visit root_path
     click_on shops(:shop_2).name
-    click_link 'Rate this Shop'
-    page.must_have_content 'Need to log in to modify that rating'
+    page.wont_have_content 'Rate this Shop'
+  end
+
+  scenario "A visitor attempts to modify store noise rating" do
+    sign_in
+    visit root_path
+    click_on shops(:shop_2).name
+    page.must_have_content'Rate this Shop'
   end
 
   scenario 'User attempts to modify store noise rating' do
