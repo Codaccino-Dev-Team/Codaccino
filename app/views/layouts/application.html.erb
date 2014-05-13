@@ -17,9 +17,9 @@
   	<title><%= content_for?(:title) ? yield(:title) : "Codaccino" %></title>
 
 
-  	<%= stylesheet_link_tag    "application" %>
+  	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
 
 
@@ -34,9 +34,15 @@
     <%= yield %>
 
 
+     <%= render 'layouts/footer' %>
+
+
+
     <% if Rails.env.production? %>
       <%= render :partial => 'layouts/analytics_code' %>
     <%end%>
+
+
 
   </body>
 </html>

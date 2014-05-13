@@ -1,3 +1,4 @@
+
 <div class='row'>
   <div class='small-12 columns'>
     <h1>Welcome to Codaccino</h1>
@@ -9,6 +10,7 @@
    <h4>Less time looking, more time working!</h4>
   </div>
 </div>
+
 <% @shops.each do |shop|%>
   <%= render 'shared/shops_index', shop: shop %>
 <% end %>

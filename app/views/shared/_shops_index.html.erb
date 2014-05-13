@@ -1,25 +1,37 @@
-<div class = 'row highlight'>
-  <div class='shop'>
-    <h1><%= link_to shop.name, shop %></h1>
+<div class="row shop">
+  <div class="small-6 columns shop-name">
+    <h3><%= link_to shop.name, shop %></h3>
+  </div>
+  <div class="small-6 columns address">
+    <h6><%= shop.address %></h6>
   </div>
 </div>
 
-<div class = 'row'>
-  <div class='shop'>
+<div class="row">
+  <div class="small-6 columns ratings">
+    <ul class="no-bullet">
+      <li>Wifi Up: <%= shop.wifi_up %></li>
+      <li>Wifi Down: <%= shop.wifi_down %></li>
+      <li>Power: <%= shop.outlet_rating %></li>
+      <li>Noise: <%= shop.noise %></li>
+    </ul>
 
-    <h3><%= shop.address %></h3>
-    <div class = 'row'>
-      <div class = 'small-6 columns'>
-        <%= image_tag(shop.shop_image) if shop.shop_image? %>
-      </div>
-      <div class = 'small-6 columns'>
-        <ul class = 'no-bullet'>
-          <li>Wifi Upload: <%= shop.wifi_up %> mbps</li>
-          <li>Wifi Download: <%= shop.wifi_down %> mbps</li>
-          <li>Power outlet rating: <%= shop.outlet_rating %>/5</li>
-          <li>Noise rating: <%= shop.noise %>/5</li>
-        </ul>
-      </div>
-    </div>
   </div>
+  <div class="small-6 columns hours">
+    <table>
+      <tr>
+        <td>Weekday Hours</td>
+        <td><%= shop.hrs_wkday %></td>
+      </tr>
+      <tr>
+        <td>Saturday Hours</td>
+        <td><%= shop.hrs_saturday %></td>
+      </tr>
+      <tr>
+        <td>Sunday Hours</td>
+        <td><%= shop.hrs_sunday %></td>
+      </tr>
+    </table>
+  </div>
+  <hr />
 </div>
