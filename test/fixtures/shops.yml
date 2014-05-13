@@ -1,12 +1,12 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 shop_1:
-  id: 1    
+  id: 1
   name: 'Urban City Drive-Thru and Louge'
   address: '4313 212th St SW Mountlake Terrace, WA 98043'
   site: 'http://www.urbancitycoffee.com/content/indexretail.html'
   phone: '(425) 776-1273'
-  wifi_up: .1
+  wifi_up: 56
   wifi_down: 11
   outlet_rating: 2
   noise: 2
@@ -15,7 +15,7 @@ shop_1:
   hrs_sunday: '6:00 am - 8:00 pm'
 
 shop_2:
-  id: 2    
+  id: 2
   name: 'Pochi Lifestyle Cafe'
   address: ' 1211 164th St SW Lynnwood, WA 98087'
   site: 'http://www.yelp.com/biz/pochi-lifestyle-cafe-lynnwood'
@@ -29,7 +29,7 @@ shop_2:
   hrs_sunday: '1:00 pm - 12:00 am'
 
 shop_3:
-  id: 3    
+  id: 3
   name: 'Cafe Racer'
   address: '5828 Roosevelt Way NE Seattle, WA 98105'
   site: 'http://caferacerseattle.com/'
@@ -43,7 +43,7 @@ shop_3:
   hrs_sunday: '9:00 am - 2:00 am'
 
 shop_4:
-  id: 4    
+  id: 4
   name: 'Jewel Box Cafe'
   address: '321 NE Thornton Place, Seattle WA 98125'
   site: 'http://www.jewelboxcafe.net/'
@@ -57,7 +57,7 @@ shop_4:
   hrs_sunday: '8:00 am - 11:00 am'
 
 shop_5:
-  id: 5    
+  id: 5
   name: 'Richmond Beach Coffee Company'
   address: '1442 NW Richmond Beach Rd Shoreline, WA 98177'
   site: 'http://www.richmondbeachcoffee.net/'
@@ -71,7 +71,7 @@ shop_5:
   hrs_sunday: '7:00 am - 6:00 pm'
 
 shop_6:
-  id: 6    
+  id: 6
   name: 'Bubble Island'
   address: '13754 Aurora Ave N Seattle, WA 98138'
   site: 'http://www.yelp.com/biz/bubble-island-seattle#query:coffee%20shop%20open%20late'
@@ -85,7 +85,7 @@ shop_6:
   hrs_sunday: '8:00 am - 6:00 pm'
 
 shop_7:
-  id: 7    
+  id: 7
   name: 'Terabtye'
   address: '13754 Aurora Ave N Seattle, WA 98138'
   site: 'http://www.yelp.com/biz/bubble-island-seattle#query:coffee%20shop%20open%20late'
