@@ -3,3 +3,12 @@ one:
   email: "David@example.com"
   twitter_handle: "@david"
 
+two:
+  name: "Joseph"
+  email: "Joseph@example.com"
+  twitter_handle: "@david"
+
+three:
+  name: "Akbar"
+  email: "Akbar@example.com"
+  twitter_handle: "Akbar"

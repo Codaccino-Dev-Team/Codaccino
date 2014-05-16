@@ -3,26 +3,46 @@
 
 <div class= "small-6 columns">
 	<%= s.hidden_field :id %>
-  <%= s.label :wifi_up %>
-  <%= s.text_field :wifi_up %>
+  <%= s.label "Current Wifi Up Rating" %>
+  <%= shop.wifi_up %>
 </div>
 
 <div class= "small-6 columns">
-  <%= s.label :wifi_down %>
-  <%= s.text_field :wifi_down %>
+  <%= s.label "Current Wifi Down Rating" %>
+  <%= shop.wifi_down %>
 </div>
 
 <div class= "small-6 columns">
-  <%= s.label :outlet_rating %>
-  <%= s.text_field :outlet_rating %>
+  <%= s.label "Your Wifi Up Rating" %>
+  <%= s.text_field :wifi_up, :value=>''  %>
 </div>
 
 <div class= "small-6 columns">
-  <%= s.label :noise %>
-  <%= s.text_field :noise %>
+  <%= s.label "Your Wifi Down Rating" %>
+  <%= s.text_field :wifi_down, :value=>''  %>
 </div>
 
-<div class= "small-12 large-6 columns">
-  <%= s.submit  name = "Rate the Coffeeshop", class: 'button expand' %>
+<div class= "small-6 columns">
+  <%= s.label  "Current Outlet Rating" %>
+  <%= shop.outlet_rating %>
+</div>
+
+<div class= "small-6 columns">
+  <%= s.label :noise, "Current Noise Rating" %>
+  <%= shop.noise %>
+</div>
+<div class= "small-6 columns">
+  <%= s.label :outlet_rating, "Your Outlet Rating" %>
+  <%= s.text_field :outlet_rating , :value=>''%>
+</div>
+
+<div class= "small-6 columns">
+  <%= s.label :noise, "Your Noise Rating" %>
+  <%= s.text_field :noise, :value=>'' %>
+</div>
+
+
+<div class= "small-6 large-6 columns">
+  <%= s.submit  name = "Rate this Coffeeshop!", class: "button expand", style: "position:relative;left:-7em;" %>
 </div>
 <% end %>

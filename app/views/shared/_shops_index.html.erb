@@ -14,11 +14,12 @@
       </div>
       <div class = 'small-6 columns'>
         <ul class = 'no-bullet'>
+          <li><b>Number of Ratings To Date: <%= shop.ratings_count %></b></li>
           <li>Wifi Up: <%= shop.wifi_up %></li>
           <li>Wifi Down: <%= shop.wifi_down %></li>
           <li>Power: <%= shop.outlet_rating %></li>
           <li>Noise: <%= shop.noise %></li>
-					<li>Rate this shop:</li>
+					<li><b>Rate this shop:</b></li>
 					<%@shop = shop%>
 					<li><%= render 'shops/rate_shop_form', shop: shop %></li>
         </ul>

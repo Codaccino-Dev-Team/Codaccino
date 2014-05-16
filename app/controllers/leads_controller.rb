@@ -1,7 +1,7 @@
 class LeadsController < ApplicationController
   def landing
     @lead = Lead.new
-    @shops = Shop.all
+    @shops = Shop.order('updated_at DESC')
   end
 
   def create
@@ -10,7 +10,7 @@ class LeadsController < ApplicationController
       flash[:success] = "We will Tweet @ you #{@lead.twitter_handle}"
       redirect_to shops_index_path
     else
-      flash[:success] = "Make sure you acutally add something!"
+      flash[:success] = "Make sure you've added a valid twitter user name with the @ sign."
       redirect_to root_path
 
     end
