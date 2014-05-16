@@ -4,7 +4,6 @@ class ShopsController < ApplicationController
   respond_to :html, :pdf, :json 
   
   def index
-    logger.info("@@@@@@@SortBy: #{params[:sort_by]}")
     #@shops = Shop.order('updated_at DESC')
     @shops = Shop.order("'#{params[:sort_by]}' DESC")
   end
@@ -43,7 +42,6 @@ class ShopsController < ApplicationController
   end
 
   def update
-    logger.info("@@@@@@@Shop UPDATE!")
     if @shop.update_attributes(shop_params)
       flash[:success] = "You've updated the coffeeshop info!"
       redirect_to @shop
@@ -51,21 +49,13 @@ class ShopsController < ApplicationController
     else
       flash[:error] = "something went wrong. Try again"
       redirect_to @shop
-
-    end
+   end
   end
   def rate_shop
     @shop = Shop.find(params[:shop][:id])
     @shop.ratings_count += 1 
-    logger.info("@@@@@Wifi Up: #{@shop.wifi_up}")
-    logger.info("@@@@@R Count: #{@shop.ratings_count}")
-    logger.info("@@@@@Result : #{@shop.wifi_up * @shop.ratings_count}")
-    logger.info("@@@@@Param: #{params[:shop][:wifi_up].to_i}")
-    #logger.info("@@@@@Result+: #{(@shop.wifi_up * @shop.ratings_count) + params[:shop][:wifi_down].to_i)}")
-    #logger.info("@@@@@Average: #{(@shop.wifi_up * @shop.ratings_count) + params[:shop][:wifi_down].to_i)/@shop.ratings_count }")
     @shop.wifi_up = (((@shop.wifi_up * @shop.ratings_count) + params[:shop][:wifi_up].to_i) / @shop.ratings_count)
     @shop.wifi_down = (((@shop.wifi_down * @shop.ratings_count) + params[:shop][:wifi_down].to_i) / @shop.ratings_count)
-    logger.info("@@@@@UP: #{@shop.wifi_up} Down: #{@shop.wifi_down}")
     
     #if @shop.update_attributes(shop_params)
     if @shop.save
