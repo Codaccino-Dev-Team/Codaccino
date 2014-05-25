@@ -29,8 +29,8 @@ feature 'ShopCreateReadUpdateDelete' do
         visit shops_path
         page.must_have_content shops(:shop_1).name
         page.must_have_content shops(:shop_1).address
-        page.must_have_content "Wifi Upload: #{shops(:shop_1).wifi_up} mbps"
-        page.must_have_content "Wifi Download: #{shops(:shop_1).wifi_down} mbps"
+        page.must_have_content "Wifi Upload Speed: #{shops(:shop_1).wifi_up} mbps"
+        page.must_have_content "Wifi Download Speed: #{shops(:shop_1).wifi_down} mbps"
         page.must_have_content "Power outlet rating: #{shops(:shop_1).outlet_rating}"
         page.must_have_content "Noise rating: #{shops(:shop_1).noise}"
     end
@@ -47,10 +47,11 @@ feature 'ShopCreateReadUpdateDelete' do
         page.must_have_content shops(:shop_3).address
         page.must_have_content "Website"
         page.must_have_content shops(:shop_3).phone
-        page.must_have_content "Wifi Upload: #{shops(:shop_3).wifi_up} mbps"
-        page.must_have_content "Wifi Download: #{shops(:shop_3).wifi_down} mbps"
-        page.must_have_content "Power outlet rating: #{shops(:shop_3).outlet_rating}"
-        page.must_have_content "Noise rating: #{shops(:shop_3).noise}"
+        save_test
+        page.must_have_content "Wifi Upload Speed: #{shops(:shop_3).wifi_up} mbps"
+        page.must_have_content "Wifi Download Speed Speed: #{shops(:shop_3).wifi_down} mbps"
+        page.must_have_content "Power Outlet Rating: #{shops(:shop_3).outlet_rating}"
+        page.must_have_content "Noise Level Rating: #{shops(:shop_3).noise}"
         page.must_have_content shops(:shop_3).hrs_wkday
         page.must_have_content shops(:shop_3).hrs_saturday
         page.must_have_content shops(:shop_3).hrs_sunday
