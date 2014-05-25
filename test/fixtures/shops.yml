@@ -6,9 +6,9 @@ shop_1:
   address: '4313 212th St SW Mountlake Terrace, WA 98043'
   site: 'http://www.urbancitycoffee.com/content/indexretail.html'
   phone: '(425) 776-1273'
-  wifi_up: 56
-  wifi_down: 11
-  outlet_rating: 2
+  wifi_up: 10
+  wifi_down: 1
+  outlet_rating: 5
   noise: 2
   hrs_wkday: '5:00 am - 10:00 pm'
   hrs_saturday: '6:00 am - 10:00 pm'
@@ -20,9 +20,9 @@ shop_2:
   address: ' 1211 164th St SW Lynnwood, WA 98087'
   site: 'http://www.yelp.com/biz/pochi-lifestyle-cafe-lynnwood'
   phone: '(425) 967-3435'
-  wifi_up: 6
-  wifi_down: 6
-  outlet_rating: 2
+  wifi_up: 9
+  wifi_down: 2
+  outlet_rating: 4
   noise: 5
   hrs_wkday: '1:00 pm - 11:00 pm'
   hrs_saturday: '12:00 pm - 12:00 am'
@@ -34,8 +34,8 @@ shop_3:
   address: '5828 Roosevelt Way NE Seattle, WA 98105'
   site: 'http://caferacerseattle.com/'
   phone: '(206) 523-5282'
-  wifi_up: 5
-  wifi_down: 5
+  wifi_up: 8
+  wifi_down: 3
   outlet_rating: 3
   noise: 2
   hrs_wkday: '9:00 am - 2:00 am'
@@ -48,9 +48,9 @@ shop_4:
   address: '321 NE Thornton Place, Seattle WA 98125'
   site: 'http://www.jewelboxcafe.net/'
   phone: '(206) 432-9341'
-  wifi_up: 4
-  wifi_down: 2
-  outlet_rating: 4
+  wifi_up: 7
+  wifi_down: 4
+  outlet_rating: 2
   noise: 4
   hrs_wkday: '6:00 am - 11:00 pm'
   hrs_saturday: '8:00 am - 12:00 am'
@@ -62,8 +62,8 @@ shop_5:
   address: '1442 NW Richmond Beach Rd Shoreline, WA 98177'
   site: 'http://www.richmondbeachcoffee.net/'
   phone: '(206) 542-0511'
-  wifi_up: 3
-  wifi_down: 2
+  wifi_up: 6
+  wifi_down: 5
   outlet_rating: 1
   noise: 1
   hrs_wkday: '6:00 am - 6:00 pm'
@@ -76,9 +76,9 @@ shop_6:
   address: '13754 Aurora Ave N Seattle, WA 98138'
   site: 'http://www.yelp.com/biz/bubble-island-seattle#query:coffee%20shop%20open%20late'
   phone: '(206) 362-3955'
-  wifi_up: 2
-  wifi_down: 9
-  outlet_rating: 2
+  wifi_up: 5
+  wifi_down: 5
+  outlet_rating: 4
   noise: 2
   hrs_wkday: '8:00 am - 6:00 pm'
   hrs_saturday: '8:00 am - 6:00 pm'
@@ -90,9 +90,9 @@ shop_7:
   address: '13754 Aurora Ave N Seattle, WA 98138'
   site: 'http://www.yelp.com/biz/bubble-island-seattle#query:coffee%20shop%20open%20late'
   phone: '(206) 362-3955'
-  wifi_up: 1
-  wifi_down: 9
-  outlet_rating: 2
+  wifi_up: 4
+  wifi_down: 6
+  outlet_rating: 3
   noise: 2
   hrs_wkday: '8:00 am - 6:00 pm'
   hrs_saturday: '8:00 am - 6:00 pm'
