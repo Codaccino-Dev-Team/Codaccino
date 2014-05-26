@@ -14,11 +14,11 @@
     </li>
   </ul>
   <section class="top-bar-section">
-    <!-- Right Nav Section -->  
+    <!-- Right Nav Section -->
     <% if user_signed_in? %>
       <ul class="right">
         <li>
-          <%= link_to "Logout", destroy_user_session_path, 
+          <%= link_to "Logout", destroy_user_session_path,
             method: :delete, data: { confirm: 'Are you sure?' } %>
         </li>
       </ul>
@@ -26,10 +26,10 @@
         <li>
           <%= link_to "Edit My Profile", edit_user_registration_path %>
         </li>
-      </ul> 
+      </ul>
       <ul class="right">
         <li>
-          <%= link_to "Add a Shop", new_shop_path %> 
+          <%= link_to "Add a Shop", new_shop_path %>
         </li>
       </ul>
     <% else %>
@@ -40,7 +40,7 @@
       </ul>
       <ul class="right">
         <li>
-          <%= link_to "Sign up", new_user_registration_path %> 
+          <%= link_to "Sign up", new_user_registration_path %>
         </li>
       </ul>
     <% end %>

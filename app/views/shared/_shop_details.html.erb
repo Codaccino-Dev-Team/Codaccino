@@ -3,13 +3,11 @@
     <h3><%= link_to shop.name, shop %></h3>
     <ul class="no-bullet">
       <li><%= link_to 'edit shop', edit_shop_path(shop) %> | <%=link_to 'delete shop', shop, method: :delete, data: {confirm: "Wow did they try to sue? Blow it away then!"} %></li>
-      <li>Wifi Up: <%= shop.wifi_up %></li>
-      <li>Wifi Down: <%= shop.wifi_down %></li>
-      <li>Power: <%= shop.outlet_rating %></li>
-      <li>Noise: <%= shop.noise %></li>
-      <% if user_signed_in? %>
-        <li><%= link_to "Rate this Shop" ,new_shop_dynamic_rating_path(shop) %></li>
-      <% end %>
+      <li>Wifi Upload: <%= shop.wifi_up %> mbps</li>
+      <li>Wifi Download: <%= shop.wifi_down %> mbps</li>
+      <li>Power Outlet Rating: <%= shop.outlet_rating %></li>
+      <li>Noise Level: <%= shop.noise %></li>
+
     </ul>
   </div>
   <div class="small-6 columns centered">
@@ -32,6 +30,10 @@
     </table>
   </div>
 </div>
+
+<% if user_signed_in? %>
+  <%= render 'shops/rate_shop_form', shop: @shop %>
+<% end %>
 
 <div class="row shop">
   <div class="small-12 columns">

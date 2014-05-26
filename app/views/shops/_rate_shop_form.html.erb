@@ -1,0 +1,42 @@
+<%=form_for shop, :url => shops_rate_shop_path(@shop), html: {multipart: true} do |s| %>
+<div class= "small-6 columns">
+  <%= s.label :wifi_down, "Your Wifi Down Rating" %>
+  <%= s.text_field :wifi_down, :value=>''  %>
+</div>
+
+<div class= "small-6 columns">
+  <%= s.label :wifi_up,  "Your Wifi Up Rating" %>
+  <%= s.text_field :wifi_up, :value=>''  %>
+</div>
+
+
+
+<div class= "small-6 columns">
+<h3 class= "noise">Power Outlet Ratings</h3>
+<ul class= "noise">
+  <li class= "noise">1- Have a good battery</li>
+  <li class= "noise">2- A couple of outlets</li>
+  <li class= "noise">3- decent when not busy</li>
+  <li class= "noise">4- Decent when busy</li>
+  <li class= "noise">5- Tripping over outlets</li>
+</ul>
+  <%= s.label :outlet_rating, "Power Outlet Rating" %>
+  <%= s.text_field :outlet_rating , :value=>''%>
+</div>
+<div class= "small-6 columns">
+<h3 class= "noise">Noise Ratings:</h3>
+<ul class= "noise">
+  <li class= "noise">1- Extremely noise can't focus</li>
+  <li class= "noise">2- With really good noise canceling head phones.. Maybe</li>
+  <li class= "noise">3- Ok with earbuds</li>
+  <li class= "noise">4- Decent without earbuds</li>
+  <li class= "noise">5- Almost like a library maybe to quiet</li>
+</ul>
+  <%= s.label :noise, "Your Noise Rating" %>
+  <%= s.text_field :noise, :value=>'' %>
+</div>
+
+<div class= "small-6 large-6 columns">
+  <%= s.submit  name = "Rate this Coffeeshop!", class: "button expand", style: "position:relative;left:-7em;" %>
+</div>
+<% end %>

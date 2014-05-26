@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418024502) do
+ActiveRecord::Schema.define(version: 20140509235911) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(version: 20140418024502) do
     t.datetime "updated_at"
     t.integer  "noise"
     t.string   "shop_image"
+    t.integer  "rating",              default: 1
+    t.integer  "ratings_count",       default: 1
+    t.decimal  "wifi_up_weight",      default: 1.0
+    t.decimal  "wifi_down_weight",    default: 1.0
+    t.decimal  "wifi_noise_weight",   default: 1.0
+    t.decimal  "wifi_outlets_weight", default: 1.0
   end
 
   create_table "user_profiles", force: true do |t|
