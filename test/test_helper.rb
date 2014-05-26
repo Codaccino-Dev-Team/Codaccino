@@ -22,10 +22,13 @@ class ActiveSupport::TestCase
       click_on "Sign in"
     end
 
-    def rating_entered
+    def rating_entered(category = 'Noise')
       click_on shops(:shop_2).name
-      click_link 'Rate this Shop'
-      fill_in "Noise", with: 2
+      fill_in "#{category}", with: 2
+    end
+
+    def save_test
+      save_and_open_page
     end
 
 

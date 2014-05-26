@@ -1,11 +1,11 @@
-<%=form_for shop, :url => shops_rate_shop_path(shop), html: {multipart: true} do |s| %>
+<%=form_for shop, :url => shops_rate_shop_path(@shop), html: {multipart: true} do |s| %>
 <div class= "small-6 columns">
-  <%= s.label "Your Wifi Down Rating" %>
+  <%= s.label :wifi_down, "Your Wifi Down Rating" %>
   <%= s.text_field :wifi_down, :value=>''  %>
 </div>
 
 <div class= "small-6 columns">
-  <%= s.label "Your Wifi Up Rating" %>
+  <%= s.label :wifi_up,  "Your Wifi Up Rating" %>
   <%= s.text_field :wifi_up, :value=>''  %>
 </div>
 
@@ -20,7 +20,7 @@
   <li class= "noise">4- Decent when busy</li>
   <li class= "noise">5- Tripping over outlets</li>
 </ul>
-  <%= s.label :outlet_rating, "Your Outlet Rating" %>
+  <%= s.label :outlet_rating, "Power Outlet Rating" %>
   <%= s.text_field :outlet_rating , :value=>''%>
 </div>
 <div class= "small-6 columns">
