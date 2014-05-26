@@ -24,7 +24,7 @@ class ShopsController < ApplicationController
     @shops = Shop.all.reorder('outlet_rating').reverse_order
     render "index"
   end
-
+  
   def new
     @shop = Shop.new
   end
@@ -38,9 +38,10 @@ class ShopsController < ApplicationController
       flash[:error] = "Shop not saved in the database bro... Try again"
       redirect_to root_path
     end
-
   end
-
+  def edit
+    
+  end
   def update
     if @shop.update_attributes(shop_params)
       flash[:success] = "You've updated the coffeeshop info!"

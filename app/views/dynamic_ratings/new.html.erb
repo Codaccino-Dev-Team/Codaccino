@@ -1,16 +1,34 @@
+
+
 <%=form_for @dynamic_rating, :url => shop_dynamic_ratings_path(@shop) do |s| %>
+<<<<<<< HEAD
 <h2>Shop: <%=@dynamic_rating.shop_id%></h2>
+=======
+
+
+>>>>>>> 22fe8283719205c34a60f6c3b13292e8a199abe8
 <div class= "small-6 columns">
+  <h3 class= "noise">Wifi Upload Speed (Mbps)</h3>
   <%= s.label :wifi_up %>
   <%= s.text_field :wifi_up %>
 </div>
 
 <div class= "small-6 columns">
+  <h3 class= "noise">Wifi Download Speed (Mbps)</h3>
   <%= s.label :wifi_down %>
   <%= s.text_field :wifi_down %>
 </div>
 
 <div class= "small-6 columns">
+<h3 class= "noise">Noise Rating Legend:</h3>
+<ul class= "noise">
+  <li class= "noise">1- Extremely noise can't focus</li>
+  <li class= "noise">2- With really good noise canceling head phones.. Maybe</li>
+  <li class= "noise">3- Ok with earbuds</li>
+  <li class= "noise">4- Decent without earbuds</li>
+  <li class= "noise">5- Almost like a library maybe to quiet</li>
+</ul>
+
   <%= s.label :noise %>
   <%= s.text_field :noise %>
 </div>

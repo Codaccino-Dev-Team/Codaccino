@@ -4,7 +4,8 @@ class Shop < ActiveRecord::Base
   
 
   mount_uploader :shop_image, ShopImageUploader
-# presence: true, uniqueness: true, length: { minimum: 2 }, format: /@/
+  # presence: true, uniqueness: true, length: { minimum: 2 }, format: /@/
+  
   validates :name, length: { minimum: 4 }, presence: true
 
   validates :address, length: { minimum: 8}, presence: true
@@ -20,7 +21,5 @@ class Shop < ActiveRecord::Base
   validates :outlet_rating, format: /\d+/
 
   validates :noise, format: /\d+/
-
-
 
 end

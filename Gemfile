@@ -51,4 +51,6 @@ end
 gem 'omniauth-twitter'
 gem 'figaro'
 
+gem 'jquery-turbolinks'
+
 ruby '2.1.1'

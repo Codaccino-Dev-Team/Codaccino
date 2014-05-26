@@ -27,6 +27,4 @@ class CommentsController < ApplicationController
     klass= [Shop].detect {|c| params["#{c.name.underscore}_id"]}
     @commentable = klass.find(params["#{klass.name.underscore}_id"])
   end
-
-
 end

@@ -5,9 +5,9 @@ Codaccino::Application.routes.draw do
   get "shops/wifi_down" => 'shops#sort_wifi_down'
   get "shops/noise" => 'shops#sort_noise'
   get "shops/power" => 'shops#sort_power'
-  patch "shops/rate_shop" => 'shops#rate_shop'
   resources :leads
   resources :shops do
+    #resources :dynamic_ratings, only: [:new, :create, :show, :destroy]
     resources :dynamic_ratings, only: [:new, :create, :show, :destroy]
     resources :comments
   end
