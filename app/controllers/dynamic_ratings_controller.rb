@@ -50,17 +50,10 @@ class DynamicRatingsController < ApplicationController
   def new_rank(wifi_down, wifi_up,noise,power)
     wifi_down_rank = {weight: 4, best: 20}
     wifi_up_rank = {weight: 3, best: 20}
-    #noise_rank = {weight: 2, target: 3}
     noise_rank = {weight: 2, best: 5}
     power_rank = {weight: 1, best: 5}
-      #logger.info("Ranks: wifi down")
-      #logger.info("Ranks: wifi down weight/best: #{wifi_down_rank[:weight]} /  #{wifi_down_rank[:best]}")
-      #a = (wifi_down.to_f / wifi_down_rank[:best])
-      #logger.info("@@@@@@#{wifi_down_rank[:weight]} * (#{wifi_down} / #{wifi_down_rank[:best]})") 
-      #logger.info("@@@@@@@a: #{a}")
     ((wifi_down_rank[:weight] * (wifi_down.to_f / wifi_down_rank[:best]).to_f) +
-     (wifi_up_rank[:weight] * (wifi_up.to_f / wifi_up_rank[:best]).to_f) + # + (wifi_up_rank[:weight] * (wifi_up/wifi_up_rank[:best])))
-     #(noise_rank[:weight] * (1 - (noise_rank[:target] - noise / 2).to_f)) +
+     (wifi_up_rank[:weight] * (wifi_up.to_f / wifi_up_rank[:best]).to_f) +
      (noise_rank[:weight] * (noise.to_f / noise_rank[:best]).to_f) + 
      (power_rank[:weight] * (power.to_f / power_rank[:best]).to_f))
   end
