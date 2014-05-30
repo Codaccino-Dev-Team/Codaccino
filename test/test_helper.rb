@@ -28,7 +28,11 @@ class ActiveSupport::TestCase
       fill_in "Noise", with: 2
     end
 
+    def save_test
+      save_and_open_page
+    end
+    
+
 
 
 end
-
