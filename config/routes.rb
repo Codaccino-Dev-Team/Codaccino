@@ -1,13 +1,15 @@
 Codaccino::Application.routes.draw do
   root 'leads#landing'
   get "shops/index"
+  get "shops/summary"
   get "shops/wifi_up" => 'shops#sort_wifi_up'
   get "shops/wifi_down" => 'shops#sort_wifi_down'
   get "shops/noise" => 'shops#sort_noise'
   get "shops/power" => 'shops#sort_power'
+  get "shops/rate"  => 'shops#rate'
+  patch "shops/update_rate"  => 'shops#update_rate'
   resources :leads
   resources :shops do
-    #resources :dynamic_ratings, only: [:new, :create, :show, :destroy]
     resources :dynamic_ratings, only: [:new, :create, :show, :destroy]
     resources :comments
   end

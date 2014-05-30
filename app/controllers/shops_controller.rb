@@ -1,11 +1,15 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:edit, :show, :update, :destroy]
+  before_action :set_shop, only: [:edit, :show, :update, :update_rate, :destroy]
   before_action :authenticate_user!, except: [:show, :index, :sort_wifi_up]
   respond_to :html, :pdf, :json 
-  
   def index
     #@shops = Shop.order('updated_at DESC')
-    @shops = Shop.order("'#{params[:sort_by]}' DESC")
+    logger.info("@Shop Index sort_by: #{params[:sort_by]}")
+    if params[:sort_by]
+      @shops = Shop.order("'#{params[:sort_by]}' DESC")
+    else
+      @shops = Shop.order('updated_at DESC')
+    end  
   end
 
   def sort_wifi_up
@@ -39,10 +43,15 @@ class ShopsController < ApplicationController
       redirect_to root_path
     end
   end
-  def edit
-    
+  def edit  
+    logger.info("@@@@@@Shops Controller Edit. Requested Action Parm: #{params[:requested_action]}!!!!!")
+   # if params[:requested_action] == 'rate'
+   #  redirect_to shops_rate_path(@shop)
+   #end
+        
   end
   def update
+    logger.info("@@@@@@@@Update Method!!!")
     if @shop.update_attributes(shop_params)
       flash[:success] = "You've updated the coffeeshop info!"
       redirect_to @shop
@@ -50,15 +59,27 @@ class ShopsController < ApplicationController
     else
       flash[:error] = "something went wrong. Try again"
       redirect_to @shop
-   end
+    end
   end
-  def rate_shop
-    @shop = Shop.find(params[:shop][:id])
-    @shop.ratings_count += 1 
-    @shop.wifi_up = (((@shop.wifi_up * @shop.ratings_count) + params[:shop][:wifi_up].to_i) / @shop.ratings_count)
-    @shop.wifi_down = (((@shop.wifi_down * @shop.ratings_count) + params[:shop][:wifi_down].to_i) / @shop.ratings_count)
+  def rate
     
+  end
+
+  def update_rate
+    logger.info("@@@@@@@@Update Rate Method - params[:wifi_up]: #{params[:shop][:wifi_up]}")
+    @shop = Shop.find(params[:id])
     #if @shop.update_attributes(shop_params)
+    @shop.ratings_count += 1 
+    wifi_up = params[:shop][:wifi_up]
+    wifi_down = params[:shop][:wifi_down]
+    outlet_rating = params[:shop][:outlet_rating]
+    noise = params[:shop][:noise]
+    @shop.wifi_up = new_rating(wifi_up, @shop.wifi_up, ratings_count,)
+    (((@shop.wifi_up * @shop.ratings_count) + params[:shop][:wifi_up].to_i) / @shop.ratings_count)
+    ##@shop.wifi_down = (((@shop.wifi_down * @shop.ratings_count) + params[:shop][:wifi_down].to_i) / @shop.ratings_count)
+    ##if @shop.update_attributes(shop_params)
+    #  logger.info("@@@@YAY!!!")
+    #end
     if @shop.save
       flash[:success] = "You've updated the coffeeshop info!"
       redirect_to :controller => 'shops', :action => 'index', :sort_by => 'updated_at'
@@ -68,9 +89,13 @@ class ShopsController < ApplicationController
       flash[:error] = "something went wrong. Try again"
       #redirect_to index
       redirect_to @shop
-
     end
   end
+  def summary
+    #@shops = Shop.order('updated_at DESC')
+    logger.info("Shop Summary")
+    @shops = Shop.all
+   end
 
   def destroy
     @shop.destroy
@@ -81,6 +106,7 @@ class ShopsController < ApplicationController
 private
 
   def set_shop
+    logger.info("@@@@@@Set Shop - id: #{params[:id]}")
     @shop = Shop.find(params[:id])
   end
   def shop_params

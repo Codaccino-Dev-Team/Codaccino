@@ -1,0 +1,37 @@
+<%# @shops.each do |shop|%>
+  <%#= render 'shared/shops_index', shop: shop %>
+<%# end %>
+
+  <div id="category" style="position:relative;top:0em;left:0em;">	
+       <h2><b>Shops Summary</b></h2>                
+
+    		<table style="width:48em;">
+       			<tr >
+    	   			<th style="text-align:right;"><b>Number of Shops</b></th> 
+    				<th style="text-align:center;"><b>Number of Shops Rated</b></th>  
+    			</tr> 
+    			<tr>   
+          <%# @shops.each do |s| %>
+						<%# if !s.rank.nil?%>
+							<td style="text-align:right"><%= Shop.all.count%>
+						 <%#else%>	
+							<td style="text-align:right;"><%= Shop.where("rating>0").count%></td> 
+						<%#end%>
+						<td style="text-align:center;"><%#= s.status_count%> </td> 
+   	  		</tr>
+    	 		<%#end%>
+          	</table>  
+			<br/>
+			<h2><b>Ratings Summary</b></h2>                
+    		<table style="width:48em;">
+				<tr>  
+					<th style="text-align:right;"><b>Average Rating</b></th>
+					<th style="text-align:center;"><b>Number of Shops Above Average</b></th>
+					<th style="text-align:center;"><b>Number of Shops Below Average</b></th>
+				</tr>
+          	</table>                                
+            <br/>
+  </div>
+	<br/>
+</body>
+</html>

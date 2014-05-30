@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509235911) do
+ActiveRecord::Schema.define(version: 20140529045601) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140509235911) do
     t.datetime "updated_at"
     t.integer  "shop_id"
     t.integer  "user_id"
+    t.integer  "outlet_rating"
   end
 
   create_table "leads", force: true do |t|
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140509235911) do
     t.decimal  "wifi_down_weight",    default: 1.0
     t.decimal  "wifi_noise_weight",   default: 1.0
     t.decimal  "wifi_outlets_weight", default: 1.0
+    t.decimal  "rank"
   end
 
   create_table "user_profiles", force: true do |t|

@@ -8,21 +8,22 @@
   <div class = 'small-6 columns images'>
     <%= image_tag(shop.shop_image) if shop.shop_image? %>
   </div>
+</div>
+
+<div class="row">
   <div class = 'small-6 columns ratings'>
     <ul class = 'no-bullet'>
       <li><b>Number of Ratings To Date: <%= shop.ratings_count %></b></li>
-      <li>Wifi Up: <%= shop.wifi_up %></li>
-      <li>Wifi Down: <%= shop.wifi_down %></li>
-      <li>Power: <%= shop.outlet_rating %></li>
-      <li>Noise: <%= shop.noise %></li>
-			<li><b>Rate this shop:</b></li>
-			<%@shop = shop%>
-			<%=logger.info("@@@shop: #{shop.wifi_up}")%>
-			<%= link_to "Rate this Shop" ,new_shop_dynamic_rating_path(shop) %></li>
-  </div>
-</div>
-  </div>
-  <div class="small-6 columns hours">
+      <li><b>Current Rating: <%= shop.rank %></b></li>
+      <li>Wifi Up: <%= shop.wifi_up %> mbps</li>
+      <li>Wifi Down: <%= shop.wifi_down %> mbps</li>
+      <li>Power: <%= shop.outlet_rating %> of 5</li>
+      <li>Noise: <%= shop.noise %> of 5</li>
+			<li><%= link_to "Rate this Shop", new_shop_dynamic_rating_path(shop) %></li>
+			
+    </ul>
+	</div>
+	<div class="small-6 columns hours">
     <table>
       <tr>
         <td>Weekday Hours</td>

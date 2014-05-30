@@ -1,15 +1,15 @@
-<%=form_for shop, :url => shops_rate_shop_path(shop), html: {multipart: true} do |s| %>
+<%=form_for @shop, :url => shops_update_rate_path(:id=>@shop.id), html: {multipart: true} do |s| %>
 
 
 <div class= "small-6 columns">
 	<%= s.hidden_field :id %>
   <%= s.label "Current Wifi Up Rating" %>
-  <%= shop.wifi_up %>
+  <%= @shop.wifi_up %>
 </div>
 
 <div class= "small-6 columns">
   <%= s.label "Current Wifi Down Rating" %>
-  <%= shop.wifi_down %>
+  <%= @shop.wifi_down %>
 </div>
 
 <div class= "small-6 columns">
@@ -24,12 +24,12 @@
 
 <div class= "small-6 columns">
   <%= s.label  "Current Outlet Rating" %>
-  <%= shop.outlet_rating %>
+  <%= @shop.outlet_rating %>
 </div>
 
 <div class= "small-6 columns">
   <%= s.label :noise, "Current Noise Rating" %>
-  <%= shop.noise %>
+  <%= @shop.noise %>
 </div>
 <div class= "small-6 columns">
   <%= s.label :outlet_rating, "Your Outlet Rating" %>
