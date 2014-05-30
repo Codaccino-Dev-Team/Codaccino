@@ -1,3 +1,4 @@
+
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:edit, :show, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index, :sort_wifi_up]
