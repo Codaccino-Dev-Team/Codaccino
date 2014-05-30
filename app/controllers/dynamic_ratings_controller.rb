@@ -1,4 +1,5 @@
 class DynamicRatingsController < ApplicationController
+  include DynamicRatingsHelper
   before_action :set_shop
 
   def new
@@ -36,16 +37,13 @@ class DynamicRatingsController < ApplicationController
   end
 
   def update_shop_rating! rating
-    @shop.wifi_up = new_rating(rating.wifi_up.to_i, @shop.wifi_up.to_i, @shop.ratings_count)
-    @shop.wifi_down = new_rating(rating.wifi_down.to_i, @shop.wifi_down.to_i, @shop.ratings_count)
-    @shop.outlet_rating = new_rating(rating.outlet_rating.to_i, @shop.outlet_rating.to_i, @shop.ratings_count)
-    @shop.noise = new_rating(rating.noise.to_i, @shop.noise.to_i, @shop.ratings_count)
+    @shop.wifi_up = NewShopRating.new_rating(rating.wifi_up.to_i, @shop.wifi_up.to_i, @shop.ratings_count)
+    @shop.wifi_down = NewShopRating.new_rating(rating.wifi_down.to_i, @shop.wifi_down.to_i, @shop.ratings_count)
+    @shop.outlet_rating = NewShopRating.new_rating(rating.outlet_rating.to_i, @shop.outlet_rating.to_i, @shop.ratings_count)
+    @shop.noise = NewShopRating.new_rating(rating.noise.to_i, @shop.noise.to_i, @shop.ratings_count)
     @shop.rank = new_rank(@shop.wifi_down.to_i,@shop.wifi_up.to_i,@shop.noise.to_i,@shop.outlet_rating.to_i)
     @shop.ratings_count = @shop.ratings_count + 1 
     @shop.save!
-  end
-  def new_rating(new_rating, current_rating, ratings_count)
-    ((new_rating + (current_rating * ratings_count)) / (ratings_count + 1))
   end
   def new_rank(wifi_down, wifi_up,noise,power)
     wifi_down_rank = {weight: 4, best: 20}
