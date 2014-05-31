@@ -8,7 +8,7 @@ class NewShopRating
   end
 
   def rating_for type
-    (@new[type] + (@old[type] * @count)) / @count += 1
+    (@new[type] + (@old[type] * @count)) / (@count + 1)
   end
 
   def self.new_rating(new_rating, current_rating, ratings_count)
