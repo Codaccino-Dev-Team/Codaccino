@@ -1,5 +1,4 @@
 ENV["RAILS_ENV"] = "test"
-ERRORMESSAGE = "something went wrong. Try again"
 require 'simplecov'
 SimpleCov.start 'rails'
 require File.expand_path("../../config/environment", __FILE__)

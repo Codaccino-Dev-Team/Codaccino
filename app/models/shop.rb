@@ -10,8 +10,7 @@ class Shop < ActiveRecord::Base
 
   validates :site, presence: true
 
-  validates :phone, format: /\d/, length: {minimum: 10}
-
+  validates :phone, format: /\A[1-9]\d{2}-\d{3}-\d{4}/
   validates :wifi_up, format: /\d/
 
   validates :wifi_down, format: /\d/
