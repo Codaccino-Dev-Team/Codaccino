@@ -73,7 +73,6 @@ feature 'ShopCreateReadUpdateDelete' do
         sign_in
         click_on shops(:shop_3).name
         first(:link, 'edit').click
-        save_test
         fill_in 'Name', with: shops(:shop_6).name
         fill_in 'Hrs wkday', with: shops(:shop_6).hrs_wkday
         click_on 'Commit the Coffeeshop'
