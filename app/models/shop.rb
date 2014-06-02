@@ -10,14 +10,14 @@ class Shop < ActiveRecord::Base
 
   validates :site, presence: true
 
-  validates :phone, format: /\d+/, length: {minimum: 10}
+  validates :phone, format: /\d/, length: {minimum: 10}
 
-  validates :wifi_up, format: /\d+/
+  validates :wifi_up, format: /\d/
 
-  validates :wifi_down, format: /\d+/
+  validates :wifi_down, format: /\d/
 
-  validates :outlet_rating, format: /\d+/
+  validates :outlet_rating, format: /\d/
 
-  validates :noise, format: /\d+/
+  validates :noise, format: /\d/
 
 end

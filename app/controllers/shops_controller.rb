@@ -29,8 +29,8 @@ class ShopsController < ApplicationController
   end
 
   def create
-    @shop = Shop.new shop_params
-    if @shop.save!
+    @shop = Shop.new(shop_params)
+    if @shop.save
       flash[:success] = "data saved in the datebase bro"
       redirect_to root_path
     else
