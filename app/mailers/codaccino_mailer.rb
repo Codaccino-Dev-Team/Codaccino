@@ -3,7 +3,7 @@ class CodaccinoMailer < ActionMailer::Base
       mail(
         :subject => 'Thanks for signing up bro!',
         :to      => user.email,
-        :from    => 'team@codaccino.com',
+        :from    => 'jon@jonfaulkenberry.com',
       )
   end
 end
