@@ -12,7 +12,7 @@ class DynamicRatingsController < ApplicationController
     if @dynamic_rating.save!
       update_shop_rating! @dynamic_rating
       flash[:success] = "Your Rating for #{@shop.name} has been factored into the ratings below - Thank you."
-      redirect_to shops_path(:sort_by=>"updated_at")
+      redirect_to shops_path
     else
       flash[:error] = "Shop not saved in the database bro... Try again"
       redirect_to root_path
