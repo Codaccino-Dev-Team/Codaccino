@@ -11,10 +11,10 @@ class DynamicRatingsController < ApplicationController
     @dynamic_rating = @shop.dynamic_ratings.build dynamic_rating_params.merge!(user: current_user)
     if @dynamic_rating.save!
       update_shop_rating! @dynamic_rating
-      flash[:success] = "Your Rating for #{@shop.name} has been factored into the ratings below - Thank you."
+      flash[:success] = "#{SUCCESS_MESSAGE_RATING}"
       redirect_to shops_path
     else
-      flash[:error] = "Shop not saved in the database bro... Try again"
+      flash[:error] = "#{ERROR_MESSAGE}"
       redirect_to root_path
     end
 

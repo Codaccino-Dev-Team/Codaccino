@@ -22,7 +22,10 @@ class ActiveSupport::TestCase
     def rating_entered
       click_on shops(:shop_2).name
       click_link 'Rate this Shop'
-      fill_in "Noise", with: 2
+    fill_in 'Wifi up', with: 3
+    fill_in 'Wifi down', with: 3
+    fill_in 'Noise', with: 3
+    fill_in 'Outlet rating', with: 3
     end
 
     def save_test
