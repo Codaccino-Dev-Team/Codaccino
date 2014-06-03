@@ -15,9 +15,6 @@ gem "font-awesome-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-#code coverage gem
-gem 'simplecov', '~> 0.7.1'
-
 # Upload and manage images
 gem 'carrierwave'
 gem 'fog'
@@ -38,6 +35,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'm'
   gem 'poltergeist'
+  gem 'simplecov', '~> 0.7.1'
 end
 
 gem 'bundler'

@@ -1,30 +1,29 @@
 require "test_helper"
-
+# we are signing in just to deal with the pundit isues. once pundit is fixed we remove the sign_in method"
 feature "As a user I want to sort shops for various criteria" do
   scenario "can sort by wifi_down" do
-    skip 'waiting for adam to fix the pundit stuff'
     visit root_path
+    sign_in
     click_link 'Download Speed'
-    page.body.index('Richmond Beach Coffee Company') <  page.body.index('Terabtye')
+    page.body.index(shops(:shop_1).name) <  page.body.index(shops(:shop_7).name)
   end
   scenario "can sort by wifi_up" do
-    skip 'waiting for adam to fix the pundit stuff'
     visit root_path
+    sign_in
     click_link 'Upload Speed'
-    page.body.index('Richmond Beach Coffee Company') <  page.body.index('Terabtye')
+    page.body.index(shops(:shop_2).name) <  page.body.index(shops(:shop_4).name)
   end
   scenario "can sort by power" do
-  skip 'waiting for adam to fix the pundit stuff'
-
     visit root_path
+    sign_in
     click_link 'Power Outlets'
-    page.body.index('Richmond Beach Coffee Company') <  page.body.index('Terabtye')
+    page.body.index(shops(:shop_4).name) <  page.body.index(shops(:shop_3).name)
   end
   scenario "can sort by noise" do
-  skip 'waiting for adam to fix the pundit stuff'
-  visit root_path
+    visit root_path
+    sign_in
     click_link 'Noise'
-    page.body.index('Richmond Beach Coffee Company') <  page.body.index('Terabtye')
+    page.body.index(shops(:shop_2).name) <  page.body.index(shops(:shop_4).name)
   end
 
 

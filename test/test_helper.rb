@@ -6,9 +6,6 @@ require "rails/test_help"
 require "minitest/rails"
 require "minitest/rails/capybara"
 require "minitest/pride"
-require 'capybara/poltergeist'
-# Capybara.default_driver = :webkit
-Capybara.javascript_driver = :poltergeist
 
 
 class ActiveSupport::TestCase
@@ -31,7 +28,8 @@ class ActiveSupport::TestCase
     def save_test
       save_and_open_page
     end
-    
+
+
 
 
 

@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  #standard messages
   before_action :set_shop, only: [:edit, :show, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index, :sort_wifi_up]
 
@@ -28,12 +29,12 @@ class ShopsController < ApplicationController
   end
 
   def create
-    @shop = Shop.new shop_params
-    if @shop.save!
-      flash[:success] = "data saved in the datebase bro"
+    @shop = Shop.new(shop_params)
+    if @shop.save
+      flash[:success] = "#{SUCCESS_MESSAGE}"
       redirect_to root_path
     else
-      flash[:error] = "Shop not saved in the database bro... Try again"
+      flash[:error] = "#{ERROR_MESSAGE}"
       redirect_to root_path
     end
 
@@ -41,11 +42,11 @@ class ShopsController < ApplicationController
 
   def update
     if @shop.update_attributes(shop_params)
-      flash[:success] = "You've updated the coffeeshop info!"
+      flash[:success] = "#{SUCCESS_MESSAGE}"
       redirect_to @shop
       # redirect_to root_path
     else
-      flash[:error] = "something went wrong. Try again"
+      flash[:error] = "#{ERROR_MESSAGE}"
       redirect_to @shop
 
     end
@@ -53,7 +54,7 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop.destroy
-    flash[:success] = "Good riddens... We hope!"
+    flash[:success] = "#{DELETE_MESSAGE}"
     redirect_to root_path
 
   end
