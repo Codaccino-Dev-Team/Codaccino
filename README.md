@@ -8,7 +8,7 @@
 
 Codaccino is an app that allows you to find coffeshops that are near you and rate them from a developers perspective. All of the data is community powered and maintained.  We care about wifi speeds, number of outlets, noise levels, and the atmosphere.
 
-![](https://raw.githubusercontent.com/Codaccino-Dev-Team/Codaccino/master/screenshots/screenshot.png=314x160)
+![](https://raw.githubusercontent.com/Codaccino-Dev-Team/Codaccino/master/screenshots/screenshot.png =314x160)
 
 ## Deployment
 The production version of Codaccino is deployed to Heroku and can be found at [codaccino.com](http://codaccino.com/). We use Travis CI for integration testing and Devise/Pundit for auth/auth. 
