@@ -5,17 +5,22 @@
   <div class="small-6 columns address">
     <h6><%= shop.address %></h6>
   </div>
+  <div class = 'small-6 columns images'>
+    <%= image_tag(shop.shop_image) if shop.shop_image? %>
+  </div>
 </div>
 
 <div class="row">
-  <div class="small-6 columns ratings">
-    <ul class="no-bullet">
-      <li>Wifi Download Speed: <%= shop.wifi_down %> mbps </li>
-      <li>Wifi Upload Speed: <%= shop.wifi_up %> mbps </li>
-      <li>Power Outlet Rating: <%= shop.outlet_rating %>/5</li>
-      <li>Noise Level Rating: <%= shop.noise %>/5</li>
+  <div class = 'small-6 columns ratings'>
+    <ul class = 'no-bullet'>
+      <li><b>Number of Ratings To Date: <%= shop.ratings_count %></b></li>
+      <li><b>Current Rating: <%= shop.rank %></b></li>
+      <li>Wifi Upload Speed: <%= shop.wifi_up %> mbps</li>
+      <li>Wifi Download Speed: <%= shop.wifi_down %> mbps</li>
+      <li>Power Outlet Rating: <%= shop.outlet_rating %> of 5</li>
+      <li>Noise Level Rating: <%= shop.noise %> of 5</li>
+      <li><%= link_to "Rate this Shop", new_shop_dynamic_rating_path(shop) %></li>
     </ul>
-
   </div>
   <div class="small-6 columns hours">
     <table>

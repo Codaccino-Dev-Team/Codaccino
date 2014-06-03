@@ -1,35 +1,52 @@
+<div class="row">
+  <div class="small-12 columns">
+ 			<%=form_for @dynamic_rating, :url => shop_dynamic_ratings_path(@shop) do |s| %>
+				<%= s.hidden_field :id %>
+				<div class= "small-12 columns">
+					<h3 >Rating for <%=@shop.name%></h3>
+				</div>
+				<div class= "small-6 columns">
+					<h3 class= "noise">Wifi Upload Speed (mbps)</h3>
+				  <h4><%= s.label "Current Wifi Up Rating: #{@shop.wifi_up} "%></h4> 
+					&nbsp;
+				  <%= s.label :wifi_up %>
+				  <%= s.text_field :wifi_up, :value=>'' %>
+				</div>
 
+				<div class= "small-6 columns">
+					<h3 class= "noise">Wifi Download Speed (mbps)</h3>
+				  <h4><%= s.label "Current Wifi download Speed: #{@shop.wifi_down} "%></h4> 
+					&nbsp;
+				  <%= s.label :wifi_down%>
+				  <%= s.text_field :wifi_down, :value=>'' %>
+				</div>
+				
+				<div class= "small-6 columns">
+					<h3 class= "noise">Current Shop Outlet Rating</h3>
+				  <h4><%= s.label "Current Shop Outlet Rating: #{@shop.outlet_rating} "%></h4> 
+					&nbsp;
+				  <%= s.label "Your Outlet Rating:"%>
+				  <%= s.text_field :outlet_rating, :value=>'' %>
+				</div>
 
-<%=form_for @dynamic_rating, :url => shop_dynamic_ratings_path(@shop) do |s| %>
+				<div class= "small-6 columns">
+				<h3 class= "noise">Noise Rating:</h3>
+				<h4><%= s.label "Current Shop Noise Rating: #{@shop.noise} "%></h4> 
+					&nbsp;
+				  <%= s.label :noise %>
+				  <%= s.text_field :noise, :value=>'' %>
+					<h6>Noise Legend:</h4>
+						<ul class= "noise">
+					  <li class= "noise">1- Extremely noisey can't focus</li>
+					  <li class= "noise">2- With really good noise canceling head phones.. Maybe</li>
+					  <li class= "noise">3- Ok with earbuds</li>
+					  <li class= "noise">4- Decent without earbuds</li>
+					  <li class= "noise">5- Almost like a library maybe to quiet</li>
+					</ul>
 
+				</div>
 
-<div class= "small-6 columns">
-  <h3 class= "noise">Wifi Upload Speed (Mbps)</h3>
-  <%= s.label :wifi_up %>
-  <%= s.text_field :wifi_up %>
-</div>
-
-<div class= "small-6 columns">
-  <h3 class= "noise">Wifi Download Speed (Mbps)</h3>
-  <%= s.label :wifi_down %>
-  <%= s.text_field :wifi_down %>
-</div>
-
-<div class= "small-6 columns">
-<h3 class= "noise">Noise Rating Legend:</h3>
-<ul class= "noise">
-  <li class= "noise">1- Extremely noise can't focus</li>
-  <li class= "noise">2- With really good noise canceling head phones.. Maybe</li>
-  <li class= "noise">3- Ok with earbuds</li>
-  <li class= "noise">4- Decent without earbuds</li>
-  <li class= "noise">5- Almost like a library maybe to quiet</li>
-</ul>
-
-  <%= s.label :noise %>
-  <%= s.text_field :noise %>
-</div>
-
-<div class= "small-12 large-6 columns">
-  <%= s.submit  name = "Enter your rating!", class: 'button expand' %>
-</div>
-<% end %>
+				<div class= "small-12 large-12 columns">
+				  <%= s.submit  name = "Rate this Coffeeshop!", class: "button expand", style: "position:relative;left:0em;" %>
+				</div>
+				<% end %>

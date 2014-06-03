@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  respond_to :html, :pdf, :json 
   before_action :set_shop, only: [:show]
   before_action :authorize_new_shop, only: [:new]
   before_action :authorize_created_shop, only: [:create]
@@ -20,8 +21,12 @@ class ShopsController < ApplicationController
                                           :update,
                                           :destroy]
 
-
   def index
+    if params[:sort_by]
+      @shops = Shop.order("'#{params[:sort_by]}' DESC")
+    else
+      @shops = Shop.order('updated_at DESC')
+    end  
   end
 
   def sort_wifi_up
@@ -40,7 +45,7 @@ class ShopsController < ApplicationController
     @shops = @shops.reorder('outlet_rating').reverse_order
     render "index"
   end
-
+  
   def new
   end
 
@@ -53,21 +58,28 @@ class ShopsController < ApplicationController
       flash[:error] = "#{ERROR_MESSAGE}"
       redirect_to root_path
     end
-
   end
-
+  def edit  
+        
+  end
   def update
-    if @shop.update_attributes(shop_params)
+     if @shop.update_attributes(shop_params)
       flash[:success] = "#{SUCCESS_MESSAGE}"
       redirect_to @shop
       # redirect_to root_path
     else
       flash[:error] = "#{ERROR_MESSAGE}"
       redirect_to @shop
-
     end
   end
-
+  def rate
+    
+  end
+  
+  def summary
+     @shops = Shop.all
+  end
+  
   def destroy
     @shop.destroy
     flash[:success] = "#{DELETE_MESSAGE}"
@@ -105,7 +117,8 @@ private
   end
 
   def shop_params
-    params.require(:shop).permit  :name,
+    params.require(:shop).permit  :id,
+                                  :name,
                                   :address,
                                   :site,
                                   :phone,
