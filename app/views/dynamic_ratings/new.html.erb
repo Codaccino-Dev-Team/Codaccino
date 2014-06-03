@@ -7,7 +7,7 @@
 				</div>
 				<div class= "small-6 columns">
 					<h3 class= "noise">Wifi Upload Speed (mbps)</h3>
-				  <h4><%= s.label "Current Wifi Up Rating: #{@shop.wifi_up} "%></h4> 
+				  <h4><%= s.label "Current Wifi Up Rating: #{@shop.wifi_up} "%></h4>
 					&nbsp;
 				  <%= s.label :wifi_up %>
 				  <%= s.text_field :wifi_up, :value=>'' %>
@@ -15,23 +15,23 @@
 
 				<div class= "small-6 columns">
 					<h3 class= "noise">Wifi Download Speed (mbps)</h3>
-				  <h4><%= s.label "Current Wifi download Speed: #{@shop.wifi_down} "%></h4> 
+				  <h4><%= s.label "Current Wifi download Speed: #{@shop.wifi_down} "%></h4>
 					&nbsp;
-				  <%= s.label :wifi_down%>
+				  <%= s.label :wifi_down %>
 				  <%= s.text_field :wifi_down, :value=>'' %>
 				</div>
-				
+
 				<div class= "small-6 columns">
 					<h3 class= "noise">Current Shop Outlet Rating</h3>
-				  <h4><%= s.label "Current Shop Outlet Rating: #{@shop.outlet_rating} "%></h4> 
+				  <h4><%= s.label "Current Shop Outlet Rating: #{@shop.outlet_rating} "%></h4>
 					&nbsp;
-				  <%= s.label "Your Outlet Rating:"%>
+				  <%= s.label :outlet_rating %>
 				  <%= s.text_field :outlet_rating, :value=>'' %>
 				</div>
 
 				<div class= "small-6 columns">
 				<h3 class= "noise">Noise Rating:</h3>
-				<h4><%= s.label "Current Shop Noise Rating: #{@shop.noise} "%></h4> 
+				<h4><%= s.label "Current Shop Noise Rating: #{@shop.noise} "%></h4>
 					&nbsp;
 				  <%= s.label :noise %>
 				  <%= s.text_field :noise, :value=>'' %>
