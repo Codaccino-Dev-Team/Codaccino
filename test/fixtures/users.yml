@@ -8,12 +8,13 @@
 abigail:
   email: abigail@coolemail.com
   encrypted_password: <%= User.new.send(:password_digest, 'Target1234') %>
+  role: admin
 
 ben:
   email: ben@coolemail.com
   encrypted_password: <%= User.new.send(:password_digest, 'Target1234') %>
+  role: user
 
 chuck:
   email: chuck@coolemail.com
   encrypted_password: <%= User.new.send(:password_digest, 'Target1234') %>
-
