@@ -7,7 +7,6 @@ Codaccino::Application.routes.draw do
   get "shops/noise" => 'shops#sort_noise'
   get "shops/power" => 'shops#sort_power'
   get "shops/rate"  => 'shops#rate'
-  patch "shops/update_rate"  => 'shops#update_rate'
   resources :leads
   resources :shops do
     resources :dynamic_ratings, only: [:new, :create, :show, :destroy]

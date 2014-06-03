@@ -2,7 +2,7 @@
   <ul class="title-area">
     <li class="name">
       <h1>
-        <%= link_to shops_index_path, alt: 'Home' do %>
+        <%= link_to root_path, alt: 'Home' do %>
           <span>< ></span>
           <i class="fa fa-coffee fa-2x"></i>
           <span><%= content_for?(:title) ? yield(:title) : "Codaccino" %></span>
@@ -53,6 +53,7 @@
           <li><%= link_to "Download Speed", shops_wifi_down_path %></li>
           <li><%= link_to "Power Outlets", shops_power_path %></li>
           <li><%= link_to "Noise", shops_noise_path %></li>
+          <li><%= link_to "Summary", shops_summary_path %></li>
         </ul>
       </li>
     </ul>

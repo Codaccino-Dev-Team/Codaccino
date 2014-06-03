@@ -75,11 +75,11 @@ class ShopsController < ApplicationController
   def rate
     
   end
-
-   def summary
+  
+  def summary
      @shops = Shop.all
-   end
-
+  end
+  
   def destroy
     @shop.destroy
     flash[:success] = "#{DELETE_MESSAGE}"

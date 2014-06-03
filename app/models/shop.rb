@@ -12,6 +12,7 @@ class Shop < ActiveRecord::Base
   validates :site, presence: true
 
   validates :phone, format: /\A[1-9]\d{2}-\d{3}-\d{4}/
+  
   validates :wifi_up, format: /\d/
 
   validates :wifi_down, format: /\d/
@@ -19,5 +20,9 @@ class Shop < ActiveRecord::Base
   validates :outlet_rating, format: /\d/
 
   validates :noise, format: /\d/
+  
+  scope :total_ratings, where('rank > 0')
+  
+  scope :total_ratings, where('rank > 0')
 
 end

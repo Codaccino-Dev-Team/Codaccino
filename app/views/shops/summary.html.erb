@@ -15,7 +15,7 @@
 						<%# if !s.rank.nil?%>
 							<td style="text-align:right"><%= Shop.all.count%>
 						 <%#else%>	
-							<td style="text-align:right;"><%= Shop.where("rating>0").count%></td> 
+							<td style="text-align:right;"><%= Shop.total_ratings.count%></td> 
 						<%#end%>
 						<td style="text-align:center;"><%#= s.status_count%> </td> 
    	  		</tr>
@@ -24,13 +24,22 @@
 			<br/>
 			<h2><b>Ratings Summary</b></h2>                
     		<table style="width:48em;">
-				<tr>  
-					<th style="text-align:right;"><b>Average Rating</b></th>
-					<th style="text-align:center;"><b>Number of Shops Above Average</b></th>
-					<th style="text-align:center;"><b>Number of Shops Below Average</b></th>
-				</tr>
-          	</table>                                
-            <br/>
+					<tr>  
+						<th style="text-align:right;"><b>Average Overall Rating</b></th>
+						<th style="text-align:center;"><b>Average WiFi Up</b></th>
+						<th style="text-align:center;"><b>Average WiFi Down</b></th>
+						<th style="text-align:center;"><b>Noise</b></th>
+						<th style="text-align:center;"><b>Power</b></th>
+					</tr>
+					<tr>
+						<td style="text-align:right"><%= Shop.total_ratings.average("rank") %></td>
+						<td style="text-align:right;"><%= Shop.total_ratings.average("wifi_up") %></td>
+						<td style="text-align:center;"><%= Shop.total_ratings.average("wifi_down") %></td>
+						<td style="text-align:center;"><%= Shop.total_ratings.average("noise").to_i %></td>
+						<td style="text-align:center;"><%= Shop.total_ratings.average("outlet_rating").to_i %></td>
+        	</tr>  	
+				</table>                                
+       <br/>
   </div>
 	<br/>
 </body>
