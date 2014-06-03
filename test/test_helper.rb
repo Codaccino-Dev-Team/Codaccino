@@ -12,7 +12,7 @@ class ActiveSupport::TestCase
 
   fixtures :all
 
-    def sign_in (admin = :abigail)
+    def sign_in (admin = :admin)
       visit new_user_session_path
       fill_in "Email", with: users(admin).email
       fill_in "Password",with: 'Target1234'
@@ -28,9 +28,4 @@ class ActiveSupport::TestCase
     def save_test
       save_and_open_page
     end
-
-
-
-
-
 end

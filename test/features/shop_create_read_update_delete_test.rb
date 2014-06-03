@@ -2,8 +2,9 @@ require 'test_helper'
 
 feature 'ShopCreateReadUpdateDelete' do
     scenario 'Adding a coffeeshop - happy path' do
-        visit new_shop_path
+        visit root_path
         sign_in
+        visit new_shop_path
         page.must_have_content 'Where are you today?'
         fill_in 'Name', with: shops(:shop_1).name
         fill_in 'Address', with: shops(:shop_1).address
@@ -22,6 +23,7 @@ feature 'ShopCreateReadUpdateDelete' do
     scenario 'Adding a coffeeshop - sad path' do
         visit new_shop_path
         sign_in
+        visit new_shop_path
         page.must_have_content 'Where are you today?'
         fill_in 'Name', with: shops(:shop_1).name
         fill_in 'Address', with: shops(:shop_1).address
