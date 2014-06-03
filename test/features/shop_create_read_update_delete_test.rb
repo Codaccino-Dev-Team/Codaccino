@@ -1,9 +1,10 @@
 require 'test_helper'
 
 feature 'ShopCreateReadUpdateDelete' do
-    scenario 'Adding a coffeeshop' do
-        visit new_shop_path
+    scenario 'Adding a coffeeshop - happy path' do
+        visit root_path
         sign_in
+        visit new_shop_path
         page.must_have_content 'Where are you today?'
         fill_in 'Name', with: shops(:shop_1).name
         fill_in 'Address', with: shops(:shop_1).address
@@ -17,9 +18,20 @@ feature 'ShopCreateReadUpdateDelete' do
         fill_in 'Hrs saturday', with: shops(:shop_1).hrs_saturday
         fill_in 'Hrs sunday', with: shops(:shop_1).hrs_sunday
         click_on 'Commit the Coffeeshop'
-
-        page.must_have_content "data saved in the datebase bro"
+        page.must_have_content "#{SUCCESS_MESSAGE}"
     end
+    scenario 'Adding a coffeeshop - sad path' do
+        visit new_shop_path
+        sign_in
+        visit new_shop_path
+        page.must_have_content 'Where are you today?'
+        fill_in 'Name', with: shops(:shop_1).name
+        fill_in 'Address', with: shops(:shop_1).address
+        click_on 'Commit the Coffeeshop'
+        page.must_have_content "#{ERROR_MESSAGE}"
+    end
+
+
     scenario 'Root path must index coffeeshops' do
         visit root_path
         page.must_have_content shops(:shop_1).name
@@ -57,7 +69,7 @@ feature 'ShopCreateReadUpdateDelete' do
     end
 
 
-    scenario 'After login admin can edit shop information' do
+    scenario 'After login admin can edit shop information - happy path' do
         visit  root_path
         click_on 'Log In'
         sign_in
@@ -68,8 +80,18 @@ feature 'ShopCreateReadUpdateDelete' do
         click_on 'Commit the Coffeeshop'
         page.must_have_content shops(:shop_6).name
         page.must_have_content shops(:shop_6).hrs_wkday
-        page.must_have_content "You've updated the coffeeshop info!"
+        page.must_have_content "#{SUCCESS_MESSAGE}"
+    end
 
+     scenario 'After login admin can edit shop information - sad path' do
+        visit root_path
+        click_on 'Log In'
+        sign_in
+        click_on shops(:shop_3).name
+        click_on 'edit shop'
+        fill_in 'Phone', with: "Adamadam12"
+        click_on 'Commit the Coffeeshop'
+        page.must_have_content "#{ERROR_MESSAGE}"
     end
 
     scenario 'After login admin can edit shop information' do
@@ -78,8 +100,7 @@ feature 'ShopCreateReadUpdateDelete' do
         sign_in
         click_on shops(:shop_3).name
         first(:link, 'delete').click
-        page.must_have_content "Good riddens... We hope!"
-
+        page.must_have_content "#{DELETE_MESSAGE}"
     end
 
 end

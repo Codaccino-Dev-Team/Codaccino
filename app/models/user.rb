@@ -37,5 +37,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def user?
+    role == "user"
+  end
+
+  def admin?
+    role == "admin"
+  end
+
 end
 
