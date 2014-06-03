@@ -57,8 +57,12 @@ ActiveRecord::Schema.define(version: 20140529045601) do
     t.datetime "updated_at"
     t.integer  "noise"
     t.string   "shop_image"
-    t.integer  "rating",        default: 1
-    t.integer  "ratings_count", default: 1
+    t.integer  "rating",              default: 1
+    t.integer  "ratings_count",       default: 1
+    t.decimal  "wifi_up_weight",      default: 1.0
+    t.decimal  "wifi_down_weight",    default: 1.0
+    t.decimal  "wifi_noise_weight",   default: 1.0
+    t.decimal  "wifi_outlets_weight", default: 1.0
     t.decimal  "rank"
   end
 

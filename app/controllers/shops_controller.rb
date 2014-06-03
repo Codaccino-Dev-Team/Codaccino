@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  respond_to :html, :pdf, :json 
+  respond_to :html, :pdf, :json
   before_action :set_shop, only: [:show]
   before_action :authorize_new_shop, only: [:new]
   before_action :authorize_created_shop, only: [:create]
@@ -25,8 +25,8 @@ class ShopsController < ApplicationController
     if params[:sort_by]
       @shops = Shop.order("'#{params[:sort_by]}' DESC")
     else
-      @shops = Shop.order('updated_at DESC')
-    end  
+      @shops = Shop.all
+    end
   end
 
   def sort_wifi_up
@@ -45,7 +45,7 @@ class ShopsController < ApplicationController
     @shops = @shops.reorder('outlet_rating').reverse_order
     render "index"
   end
-  
+
   def new
   end
 
@@ -59,8 +59,8 @@ class ShopsController < ApplicationController
       redirect_to root_path
     end
   end
-  def edit  
-        
+  def edit
+
   end
   def update
      if @shop.update_attributes(shop_params)
@@ -73,13 +73,13 @@ class ShopsController < ApplicationController
     end
   end
   def rate
-    
+
   end
-  
+
   def summary
      @shops = Shop.all
   end
-  
+
   def destroy
     @shop.destroy
     flash[:success] = "#{DELETE_MESSAGE}"
