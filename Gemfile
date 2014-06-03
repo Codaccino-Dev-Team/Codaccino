@@ -53,4 +53,8 @@ gem 'figaro'
 
 gem 'jquery-turbolinks'
 
+#Email
+gem "postmark-rails"
+gem "letter_opener"
+
 ruby '2.1.1'
