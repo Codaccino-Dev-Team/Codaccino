@@ -28,12 +28,4 @@ class ActiveSupport::TestCase
     def save_test
       save_and_open_page
     end
-
-<<<<<<< HEAD
-=======
-
->>>>>>> master
-
-
-
 end
